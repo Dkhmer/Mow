@@ -14,9 +14,6 @@
                   <%= cl_image_tag animal.photo.key, height: 300, width: 400, crop: :fill %>
                   <% end %>
                 <%= link_to animal.name, animal_path(animal) %>
-                  <% animal.doses.each do |dose| %>
-                <%= dose.description %> <%= dose.ingredient.name %>
-                <% end %>
               </div>
               <%= link_to "", animal_path(animal), class: 'card-link' %>
             </div>
