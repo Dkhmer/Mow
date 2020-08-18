@@ -11,8 +11,6 @@ class AnimalsController < ApplicationController
   end
 
 
-end
-
   def show
     authorize @animal
   end
