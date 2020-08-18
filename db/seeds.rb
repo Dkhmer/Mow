@@ -24,3 +24,4 @@ Animal.create(name: 'Xoxo', specie: "pig",user: narcisse)
 Animal.create(name: 'Coco', specie: "duck",user: narcisse)
 Animal.create(name: 'Vovo', specie: "pikachu",user: narcisse)
 
+
