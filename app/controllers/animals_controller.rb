@@ -8,7 +8,6 @@ class AnimalsController < ApplicationController
   def show
     authorize @animal
     @booking = Booking.new
-
   end
 
   def new
@@ -68,3 +67,5 @@ class AnimalsController < ApplicationController
   def animal_params
     params.require(:name).permit(:name, :specie, :age, :price, :skill, :description)
   end
+  
+end
