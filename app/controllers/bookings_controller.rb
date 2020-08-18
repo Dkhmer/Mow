@@ -18,11 +18,6 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-
-    @animal.user = @user
-    @booking.save
-    raise
-    redirect_to animal_path(@animal)
   end
 
 
