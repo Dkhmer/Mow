@@ -1,0 +1,40 @@
+<div class="container">
+
+  <h1><%= @animal.name %></h1>
+  <img src="" alt="">
+
+  <%= link_to "Back to all animals", root_path %>
+  <%= link_to "Delete",  animal_path(@animal), method: :delete, data: { confim: "Are you sure?" } %>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h3>About me</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <thead>
+            <th>Species</th>
+            <th>Age</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Skill</th>
+          </thead>
+          <% @animal.each do |information| %>
+            <tr>
+              <td><%= animal.species %></td>
+              <td><%= animal.age %></td>
+              <td><%= animal.price %></td>
+              <td><%= animal.descritpion %></td>
+              <td><%= animal.skil %></td>
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <%= render "animal/new", animal: @animal, dose: @dose %>
+    </div>
+  </div>
+
+</div>

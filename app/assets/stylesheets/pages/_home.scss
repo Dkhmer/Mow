@@ -1,1 +1,14 @@
-// Specific CSS for your home-page
+.banner {
+  align-items: center;
+  background-color:grey;
+  color: white;
+  text-align: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.container {
+  background-color: white;
+}
