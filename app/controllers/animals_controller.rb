@@ -8,7 +8,6 @@ class AnimalsController < ApplicationController
   def show
     authorize @animal
     @booking = Booking.new
-
   end
 
   def new
