@@ -1,17 +1,13 @@
 class AnimalsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @animals = Animal.all
-  end
-
-  def show
-    @animal = Animal.find(params[:id])
-    @booking = Booking.new
+    @animals = policy_scope(Animal).order(created_at: :desc)
   end
 
   def show
     authorize @animal
+    @booking = Booking.new
   end
 
   def new
@@ -24,7 +20,7 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = Animal.new(restaurant_params)
+    @animal = Animal.new(animal_params)
     @animal.user = current_user
     authorize @animal
 
@@ -43,7 +39,7 @@ class AnimalsController < ApplicationController
   def update
     authorize @animal
     respond_to do |format|
-      if @animal.update(restaurant_params)
+      if @animal.update(animal_params)
         format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
         format.json { render :show, status: :ok, location: @animal }
       else
@@ -58,7 +54,7 @@ class AnimalsController < ApplicationController
     authorize @animal
     @animal.destroy
     respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: 'Animal was successfully destroyed.' }
+      format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
