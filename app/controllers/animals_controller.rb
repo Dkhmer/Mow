@@ -4,9 +4,11 @@ class AnimalsController < ApplicationController
   def index
     @animals = policy_scope(Animal).order(created_at: :desc)
   end
-  
+
   def show
     authorize @animal
+    @booking = Booking.new
+
   end
 
   def new
