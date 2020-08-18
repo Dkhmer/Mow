@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
     @booking.animal_id = @animal.id
     @booking.user = current_user
     if @booking.save
-      raise
       redirect_to animal_path(@animal)
     else
       render :new
