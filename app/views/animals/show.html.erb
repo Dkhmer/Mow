@@ -34,6 +34,13 @@
            </ul>
           <%= link_to "Back to all animals", root_path %>
 
+          <%= simple_form_for [@animal, @booking ] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+<% end %>
+
+
     <script src="main.js"></script>
   </body>
 </html>
