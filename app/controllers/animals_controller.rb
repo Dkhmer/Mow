@@ -1,16 +1,10 @@
 class AnimalsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @animals = Animal.all
+    @animals = policy_scope(Animal).order(created_at: :desc)
   end
-
-  def show
-    @animal = Animal.find(params[:id])
-
-  end
-end
-
+  
   def show
     authorize @animal
   end
@@ -25,7 +19,7 @@ end
   end
 
   def create
-    @animal = Animal.new(restaurant_params)
+    @animal = Animal.new(animal_params)
     @animal.user = current_user
     authorize @animal
 
@@ -44,7 +38,7 @@ end
   def update
     authorize @animal
     respond_to do |format|
-      if @animal.update(restaurant_params)
+      if @animal.update(animal_params)
         format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
         format.json { render :show, status: :ok, location: @animal }
       else
