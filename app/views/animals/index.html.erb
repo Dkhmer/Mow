@@ -1,1 +1,11 @@
+<% @animals.each do |animal| %>
+<div class="card-product">
+
+  <div class="card-product-infos">
+    <h2> <%= link_to animal.name, animal_path(animal) %> <p><%= animal.specie.capitalize %></p> </h2>
+    <p> <%= animal.description %> <strong>relevant info</strong> only.</p>
+    <i class="fas fa-heart">4,43 <span id="number-of-note">(19)</span></i>
+  </div>
+</div>
+<% end %>
 
