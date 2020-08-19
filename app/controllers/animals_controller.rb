@@ -2,9 +2,7 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @animals = policy_scope(Animal).order(created_at: :desc)
-    @animals = Animal.geocoded
-    @animals= Animal.where.not(latitude: nil, longitude: nil)
+    @animals = policy_scope(Animal).order(created_at: :desc).geocoded
     @markers = @animals.map do |animal|
       {lng: animal.longitude, lat:animal.latitude}
     end
@@ -26,16 +24,10 @@ class AnimalsController < ApplicationController
     @animal = Animal.new(animal_params)
     @animal.user = current_user
     authorize @animal
-
-
-    respond_to do |format|
-      if @animal.save
-        format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
-        format.json { render :show, status: :created, location: @animal }
-      else
-        format.html { render :new }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
-      end
+    if @animal.save
+      redirect_to animal_path(@animal)
+    else
+      render :new
     end
   end
 
@@ -67,6 +59,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :specie, :photo)
+    params.require(:animal).permit(:name, :specie, :description, :address, :photo)
   end
 end
