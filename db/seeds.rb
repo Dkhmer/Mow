@@ -15,4 +15,3 @@ narcisse = User.create!(email: "narcisse@gmail.com", password:"123456")
 leo = User.create!(email: "leo@gmail.com", password:"123456")
 
 
-
