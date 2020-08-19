@@ -1,21 +1,21 @@
 
 <div class="main-container">
   <!-- CARDS -->
-  <div class="card-product">
-    <% @animals.each do |animal| %>
-      <div class="card-product-infos">
-        <% if animal.photo.attached? %>
-          <%= cl_image_tag animal.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-        <h2> <%= link_to animal.name, animal_path(animal) %> <p><%= animal.specie.capitalize %></p> </h2>
-        <p> <%= animal.description %> <strong>relevant info</strong> only.</p>
-        <i class="fas fa-heart">4,43 <span id="number-of-note">(19)</span></i>
+  <div class="cards-container">
+  <% @animals.each do |animal| %>
+      <div class="card-product">
+        <div class="card-product-infos">
+          <h2> <%= link_to animal.name, animal_path(animal) %> <p><%= animal.specie.capitalize %></p> </h2>
+          <p> <%= animal.description %> <strong>relevant info</strong> only.</p>
+          <i class="fas fa-heart">4,43 <span id="number-of-note">(19)</span></i>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   <!-- MAP -->
   <div
     id="map"
     data-markers= "<%= @markers.to_json %>"
     data-mapbox-api-key= <%= ENV['MAPBOX_API_KEY'] %>>
-    </div>
+   </div>
+</div>
