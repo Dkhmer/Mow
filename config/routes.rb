@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create,:delete]
   end
   resources :dashboard
+  resources :bookings, only: :show
 end
