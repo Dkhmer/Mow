@@ -2,9 +2,7 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @animals = policy_scope(Animal).order(created_at: :desc)
-    @animals = Animal.geocoded
-    @animals= Animal.where.not(latitude: nil, longitude: nil)
+    @animals = policy_scope(Animal).order(created_at: :desc).geocoded
     @markers = @animals.map do |animal|
       {lng: animal.longitude, lat:animal.latitude}
     end
