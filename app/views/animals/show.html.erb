@@ -2,9 +2,13 @@
   <div class="row">
     <div class="col-sm-6 ">
       <h1><%= "#{@animal.name}"%></h1> <br>
-      <img src= "https://geo.img.pmdstatic.net/fit/https.3A.2F.2Fprd-cam-website-statics.2Es3.2Eeu-west-1.2Eamazonaws.2Ecom.2Fcontent.2Fuploads.2F2017.2F11.2Fchevre.2Ejpg/750x422/quality/80/background-color/ffffff/background-alpha/100/focus-point/375%2C211/crop-zone/0%2C0-750x422/chevre.jpg" style="width: 450px" alt = "photo de biquette"><br><br>
+      <% if @animal.photo.attached? %>
+        <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <h2>Some informations:</h2>
-      <p><%= "Very rare specie of #{@animal.specie}"%></p>
+      <p><%= "Specie : #{@animal.specie}"%></p>
+      <p><%= "Age : #{@animal.age}"%></p>
+      <p><%= "Description : #{@animal.description}"%></p>
       <h2>Reception conditions:</h2>
       <p>Our pets don't ask for much, a little ground will suit them perfectly.<br>
       <p>Please no apartment !!! </p>
