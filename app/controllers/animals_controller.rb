@@ -6,7 +6,6 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    authorize @animal
     @booking = Booking.new
   end
 
@@ -16,7 +15,6 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    authorize @animal
   end
 
   def create
@@ -37,7 +35,6 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    authorize @animal
     respond_to do |format|
       if @animal.update(animal_params)
         format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
@@ -51,7 +48,6 @@ class AnimalsController < ApplicationController
 
 
   def destroy
-    authorize @animal
     @animal.destroy
     respond_to do |format|
       format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
@@ -62,9 +58,10 @@ class AnimalsController < ApplicationController
   private
   def set_animal
     @animal = Animal.find(params[:id])
+    authorize @animal
   end
 
   def animal_params
-    params.require(:name).permit(:name, :specie, :age, :price, :skill, :description)
+    params.require(:animal).permit(:name, :specie, :photo)
   end
 end

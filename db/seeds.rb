@@ -14,14 +14,5 @@ puts "Creating animal........"
 narcisse = User.create!(email: "narcisse@gmail.com", password:"123456")
 leo = User.create!(email: "leo@gmail.com", password:"123456")
 
-Animal.create!(name: 'Momo', specie: "sheep", user: narcisse )
-Animal.create!(name: 'Nono', specie: "cow", user: leo)
-Animal.create(name: 'Toto', specie: "snake", user: narcisse)
-Animal.create(name: 'Dodo', specie: "mouse",user: narcisse )
-Animal.create(name: 'Zozo', specie: "dog",user: leo)
-Animal.create(name: 'Soso', specie: "bear",user: leo)
-Animal.create(name: 'Xoxo', specie: "pig",user: narcisse)
-Animal.create(name: 'Coco', specie: "duck",user: narcisse)
-Animal.create(name: 'Vovo', specie: "pikachu",user: narcisse)
 
 
