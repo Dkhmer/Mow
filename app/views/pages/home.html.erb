@@ -13,31 +13,20 @@
   </section>
 
   <section class="gallery">
-
-    <div class="prices">
-
-      <h3>Explore Mow picks</h3>
-
-      <div class="img"><img src="https://parismatch.be/app/uploads/2018/02/hautehaute-1100x715.jpg">
-        <div class="price-stamp">20$</div>
-        <div class="description">
-          <h4>Ines</h4>
-        </div>
+  <h3>Explore Mow picks</h3>
+    <div class="cards">
+      <% @animals.each do |animal| %>
+      <div class="card">
+        <% if animal.photo.attached? %>
+          <div class="img"><%= cl_image_tag animal.photo.key, height: 300, width: 400, crop: :fill %></div>
+          <div class="price-stamp"><%= animal.price %>$</div>
+          <div class="description">
+            <h4><%= link_to animal.name, animal_path(animal) %></h4>
+          </div>
+        <% end %>
       </div>
 
-      <div class="img"><img src="https://thumbs-prod.si-cdn.com/SkuS5xz-Q-kr_-ol6xblY9fsoeA=/fit-in/1600x0/https://public-media.si-cdn.com/filer/d4/f6/d4f6e4bf-8f77-445d-a8f9-e3a74c6a40f0/ewkhdqqwsae0xpo.jpeg">
-        <div class="price-stamp">17$</div>
-        <div class="description">
-          <h4>Mouti</h4>
-        </div>
-      </div>
-
-      <div class="img"><img src="https://besthqwallpapers.com/Uploads/12-8-2018/61378/thumb2-ginger-persian-cat-big-fat-cat-fluffy-ginger-cat-cute-animals.jpg">
-        <div class="price-stamp">10$</div>
-        <div class="description">
-          <h4>Stella</h4>
-        </div>
-      </div>
+      <% end %>
     </div>
   </section>
 
