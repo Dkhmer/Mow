@@ -21,7 +21,7 @@
             <div class="col-sm-6" style="padding: 115px">
               <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
                 <h1> BOOK ME !</h1>
-                <div>
+                <!-- <div>
                     <%= simple_form_for :search, method: "get" do |f| %>
                     <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
                     <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
@@ -43,7 +43,13 @@
                     <p>TOTAL:</p>
                     <%= f.button :submit, "Book", class: "btn btn-primary btn-lg btn-block" %>
                   <% end %>
-                </div>
+                </div> -->
+                <%= simple_form_for [@animal, @booking ] do |f| %>
+                  <%= f.input :start_date, input_html: {class: "datepicker"}%>
+                  <%= f.input :end_date , input_html: {class: "datepicker"}%>
+                  <%= f.submit %>
+
+                <% end %>
               </div>
             </div>
         </div>
