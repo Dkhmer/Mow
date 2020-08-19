@@ -1,0 +1,10 @@
+.main-container{
+  display: flex;
+}
+.main_container #map {
+  height:50vh;
+  width:100px;
+  margin-left: 10px;
+  position: sticky;
+  top: 0;
+}
