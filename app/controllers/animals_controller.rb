@@ -17,6 +17,9 @@ class AnimalsController < ApplicationController
   def edit
   end
 
+  def book
+  end
+
   def create
     @animal = Animal.new(animal_params)
     @animal.user = current_user
