@@ -1,42 +1,50 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container" style="padding: 40px">
+  <div class="row">
+    <div class="col-sm-6 ">
+      <h1><%= "#{@animal.name}"%></h1> <br>
+      <% if @animal.photo.attached? %>
+        <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <h2>Some informations:</h2>
+      <p><%= "Specie : #{@animal.specie}"%></p>
+      <p><%= "Age : #{@animal.age}"%></p>
+      <p><%= "Description : #{@animal.description}"%></p>
+      <h2>Reception conditions:</h2>
+      <p>Our pets don't ask for much, a little ground will suit them perfectly.<br>
+      <p>Please no apartment !!! </p>
+              <h2>Daily needs:</h2>
+              <p>Just a little love and a lot of fresh water</p>
+              <br>
+              <h2>Terms of cancelation:</h2>
+              <p>You can cancel up to 1:00 PM the day before</p>
+            </div>
+            <div class="col-sm-6" style="padding: 115px">
+              <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+                <h1> BOOK ME !</h1>
+                <div>
+                    <%= simple_form_for :search, method: "get" do |f| %>
+                    <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                    <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
 
-    <title>Mow</title>
-    <link rel="shortcut icon" href="data:image/x-icon;" type="image/x-icon">
-
-    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/rcswitcher.min.css">
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/rcswitcher.min.js"></script>
-  </head>
-    <body>
-      <div class="container" style="padding: 15px">
-        <div class="row">
-          <div class="col-sm-8 offset-sm-2">
-            <h1><%= "Welcome to #{@animal.name}'s page"%></h1> <br>
-            <img src= "https://geo.img.pmdstatic.net/fit/https.3A.2F.2Fprd-cam-website-statics.2Es3.2Eeu-west-1.2Eamazonaws.2Ecom.2Fcontent.2Fuploads.2F2017.2F11.2Fchevre.2Ejpg/750x422/quality/80/background-color/ffffff/background-alpha/100/focus-point/375%2C211/crop-zone/0%2C0-750x422/chevre.jpg" alt = "photo de biquette"><br><br>
-            <h2>Some informations:</h2>
-            <ul>
-              <li><%= "Very rare specie of #{@animal.specie}"%></li>
-              <li>Age</li>
-              <li>C'est une coquine et elle est très joueuse</li>
-              <li>c'est la plus douée pour désherber de grands terrains</li>
-            </ul>
-            <%= link_to "Back to all animals", root_path %>
-          </div>
-          <%= simple_form_for [@animal, @booking ] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
-            <%= f.submit %>
-          <% end %>
+                    <div class="dropdown">
+                        <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Surface
+                        </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">small field</a>
+                            <a class="dropdown-item" href="#">medium size field</a>
+                            <a class="dropdown-item" href="#">big size field</a>
+                          </div>
+                    </div>
+                    <br>
+                    <p>Total without taxes:</p>
+                    <p>administration fees:</p>
+                    -----------------------------------
+                    <p>TOTAL:</p>
+                    <%= f.button :submit, "Book", class: "btn btn-primary btn-lg btn-block" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
-      <script src="main.js"></script>
-    </body>
-</html>
