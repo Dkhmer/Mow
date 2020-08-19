@@ -3,12 +3,16 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = policy_scope(Animal).order(created_at: :desc)
+    @animals = Animal.geocoded
+    @animals= Animal.where.not(latitude: nil, longitude: nil)
+    @markers = @animals.map do |animal|
+      {lng: animal.longitude, lat:animal.latitude}
+    end
   end
 
   def show
     authorize @animal
     @booking = Booking.new
-    @animal = Animal.find(params[:id])
   end
 
   def new
