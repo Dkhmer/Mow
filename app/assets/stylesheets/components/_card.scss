@@ -11,9 +11,12 @@
   border-color: white;
   border-width: thin;
   text-decoration: none;
+  flex-grow:1;
 }
-
-.card-product img {
+.cards-container{
+  flex-grow:1;
+}
+.img-card {
 
   height: 200px;
   object-fit: cover;
@@ -42,6 +45,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 95%;
+  flex-grow:1;
 }
 
 .card-product a {
@@ -54,4 +58,8 @@
 
 .card-product span {
   font-weight:5;
+}
+.footer-cards {
+  display: flex;
+  justify-content: space-between;
 }
