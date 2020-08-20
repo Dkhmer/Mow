@@ -5,19 +5,18 @@
     <h1> Congratulations, your reservation is confirmed !</h1>
 
       <br>
-      <img src="https://pbs.twimg.com/profile_images/945596035954610176/aOiSZMF5_400x400.jpg" alt="photo de Timon">
+      <img src="https://pbs.twimg.com/profile_images/945596035954610176/aOiSZMF5_400x400.jpg" alt="photo de Timon" style="width: 400px">
       <br>
       <br>
       <br>
       <br>
-      <h3><strong>Begins on: 2020-08-21</strong></h3>
+      <h3><%= "Begins on #{@booking.start_date}"%></h3>
       <br>
       <br>
-      <h3><strong>Ends on: 2020-08-22 </strong></h3>
+      <h3><%= "Ends on #{@booking.end_date}"%></h3>
       <br>
       <br>
       <br>
-    <h2> Mariane is already waiting for you </h2>
-    <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80" alt="photo de Mariane">
-
+    <h2><%= "#{@booking.animal.name} is already waiting for you " %></h2>
+    <%= cl_image_tag @booking.animal.photo.key, height: 300, width: 400, crop: :fill %>
 </div>
