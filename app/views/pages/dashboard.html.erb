@@ -1,0 +1,15 @@
+<h1>My bookings!</h1>
+<ul>
+<% @bookings.each do |booking|%>
+  <% if booking.animal.photos.attached? %>
+    <% booking.animal.photos.each do |photo| %>
+      <li> <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></li>
+    <% end %>
+  <% end %>
+  <li> <%= booking.animal.name %> </li>
+  <li> <%= booking.animal.specie %> </li>
+  <li> <%= booking.start_date %> </li>
+  <li> <%= booking.end_date %> </li>
+<% end %>
+
+</ul>
