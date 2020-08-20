@@ -3,19 +3,18 @@
   <h2 class="title"><span>Go green.</span> Book unique animals <br>and experience it like a farmer.</h2>
 
     <div class = "search-all">
-    <div class = "search-input">
-      <%= form_tag animals_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control form-search",
-      placeholder: "Where at ? Which specie ?"%>
+      <div class = "search-input">
+        <%= form_tag animals_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control form-search",
+        placeholder: "Where at ? Which specie ?"%>
+        <%end%>
+      </div>
+        <div class="search-button">
+        <%= submit_tag "Search", class: "btn btn-primary homebtn" %>
+        </div>
     </div>
-      <div class="search-button">
-      <%= submit_tag "Search", class: "btn btn-primary homebtn" %>
-    </div>
-  </div>
-<%end%>
-
 
 
 <section class="gallery">

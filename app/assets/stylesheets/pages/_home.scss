@@ -39,9 +39,7 @@
   }
 
 /*---search-row---*/
-
   .form-search {
-    width:80%;
     height:50px;
   }
 
@@ -52,18 +50,14 @@
     border-color:rgb(0, 150, 107);
   }
 
+  .search-input {
+    flex-grow: 1;
+  }
 
 
-  .search-bo{
-    padding: 10px;
-    float: left;
-    width: 767px;
-    height: 52px;
-    border: 1px solid #757575;
-    border-right-color: transparent;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    font-size: 16px;
+  .search-all{
+    display: flex;
+    justify-content: space-between;
   }
 
 
