@@ -9,6 +9,7 @@ require 'open-uri'
 
 Animal.destroy_all
 User.destroy_all
+Booking.destroy_all
 puts "Creating animal........"
 
 
