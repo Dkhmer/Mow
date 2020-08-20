@@ -1,3 +1,4 @@
+
 .card-product {
   overflow: hidden;
   height: 225px;
@@ -21,17 +22,20 @@
   height: 200px;
   object-fit: cover;
   margin: 12px;
-  border-radius: 8%;
+  border-radius: 3%;
   width: 300px;
 }
 
 .card-product h2 {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 300;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+
 }
 
 .card-product p {
   font-size: 18px;
+  font-weight:400;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -62,4 +66,26 @@
 .footer-cards {
   display: flex;
   justify-content: space-between;
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+.empty{
+  padding-top:140px;
+  text-align: -webkit-center;
+}
+
+.empty h3{
+  padding-bottom:20px;
+}
+
+.search-all-fail {
+  width: fit-content;
+  height:50px;
+}
+
+.search-button-fail {
+  padding-top:20px;
+}
+.form-search-fail {
+  height:50px;
 }
