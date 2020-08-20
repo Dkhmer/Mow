@@ -18,9 +18,6 @@ narcisse = User.create!(email: "narcisse@gmail.com", password:"123456")
 leo = User.create!(email: "leo@gmail.com", password:"123456")
 # ANIMALS
 file1 = URI.open("https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80")
-animal1 = Animal.create!(city: "New York",specie: "Panda", user: leo, price: 32, age: 5, name: "Mariane", address: "Gold Street, New York", description:"Panda extrêmement doux, a beaucoup d'experience dans le cinéma, très à l'aise devant la caméra")
-animal1.photo.attach(io: file1, filename: 'mariane.jpg', content_type: 'image/png')
-
 file11 = URI.open("https://images.unsplash.com/photo-1570288685369-f7305163d0e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80")
 animal1 = Animal.create!(city: "New York", specie: "Panda", user: leo, price: 32,  age: 6, name: "Mariane", address: "Gold Street, New York", description:"Panda extrêmement doux, a beaucoup d'experience dans le cinéma, très à l'aise devant la caméra")
 animal1.photos.attach(io: file1, filename: 'mariane.jpg', content_type: 'image/png')
@@ -48,4 +45,4 @@ animal1.photos.attach(io: file6, filename: 'bibi.jpg', content_type: 'image/png'
 
 file7 = URI.open("https://wallpapercrafter.com/desktop/271302-cow-highland-cattle-calf-and-highland-calf-hd.jpg")
 animal1 = Animal.create!(city: "New York", specie: "Cow", user: leo, price: 37, age: 12, name: "Edouard", address: "Park Place, New York",description:"Utilisable pour tondre votre gazon (il mange vos herbes en 2h environ)")
-animal1.photo.attach(io: file7, filename: 'edouard.jpg', content_type: 'image/png')
+animal1.photos.attach(io: file7, filename: 'edouard.jpg', content_type: 'image/png')
