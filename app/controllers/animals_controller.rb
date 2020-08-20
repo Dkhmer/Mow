@@ -2,8 +2,15 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @animals = policy_scope(Animal).order(created_at: :desc).geocoded
-    @markers = @animals.map do |animal|
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR specie ILIKE :query OR city ILIKE :query"
+      @animals = policy_scope(Animal).where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc).geocoded
+
+    else
+      @animals = policy_scope(Animal).order(created_at: :desc).geocoded
+
+    end
+      @markers = @animals.map do |animal|
       {lng: animal.longitude, lat:animal.latitude}
     end
   end
