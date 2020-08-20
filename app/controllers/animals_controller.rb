@@ -3,7 +3,8 @@ class AnimalsController < ApplicationController
 
   def index
     if params[:query].present?
-      @animals = policy_scope(Animal).where(name: params[:query]).order(created_at: :desc).geocoded
+      sql_query = "name ILIKE :query OR specie ILIKE :query OR city ILIKE :query"
+      @animals = policy_scope(Animal).where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc).geocoded
 
     else
       @animals = policy_scope(Animal).order(created_at: :desc).geocoded
