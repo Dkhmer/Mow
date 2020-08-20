@@ -2,8 +2,7 @@
 
   <h2 class="title"><span>Go green.</span> Book unique animals <br>and experience it like a farmer.</h2>
 
-  <section class="search-row">
-
+  <div class="search-row">
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 
     <%= form_tag animals_path, method: :get do %>
@@ -11,69 +10,44 @@
     params[:query],
     class: "form-control form-search",
 
-    placeholder: "Where at ? Which specie ?"
-    %>
+    placeholder: "Where at ? Which specie ?"%>
     <%= submit_tag "Search", class: "btn btn-primary" %>
-<%end%>
-
-
+    <%end%>
+  </div>
 
 
 
 <section class="gallery">
 
-<<<<<<< HEAD
-
-<section class="gallery">
-
-=======
->>>>>>> master
     <div class="prices">
-
       <h3>Explore Mow picks</h3>
-
       <div class="img"><img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80">
         <div class="price-stamp">20 €</div>
-        <div class="description">
-          <h4>Mariane</h4>
-        </div>
-<<<<<<< HEAD
+        <div class="description"><h4>Mariane</h4></div>
       </div>
 
       <div class="img"><img src="https://images7.alphacoders.com/405/405322.jpg">
         <div class="price-stamp">32 €</div>
-        <div class="description">
-          <h4>Nathalie</h4>
-        </div>
-      </div>
-
-=======
-      </div>
-
-      <div class="img"><img src="https://images7.alphacoders.com/405/405322.jpg">
-        <div class="price-stamp">32 €</div>
-        <div class="description">
-          <h4>Nathalie</h4>
-        </div>
-      </div>
-
->>>>>>> master
-      <div class="img"><img src="https://cdn1-www.cattime.com/assets/uploads/2015/05/cat-obesity-1.jpg">
-        <div class="price-stamp">9 €</div>
-        <div class="description">
-          <h4>Edouard</h4>
-        </div>
+        <div class="description"><h4>Nathalie</h4></div>
       </div>
     </div>
+
+      <div class="img"><img src="https://images7.alphacoders.com/405/405322.jpg">
+        <div class="price-stamp">32 €</div>
+        <div class="description"><h4>Nathalie</h4></div>
+      </div>
+
+      <div class="img"><img src="https://cdn1-www.cattime.com/assets/uploads/2015/05/cat-obesity-1.jpg">
+        <div class="price-stamp">9 €</div>
+        <div class="description"><h4>Edouard</h4></div>
+      </div>
     <hr>
+
   </section>
 
 </main>
 
 <footer>
-
-
-
   <div class="footer-content">
     <div class="footer-row">
       <section class="selectors">
