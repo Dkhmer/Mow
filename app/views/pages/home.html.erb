@@ -4,17 +4,30 @@
 
   <section class="search-row">
 
-    <input class="search-input" type="text" placeholder="Where to?"></input>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 
-    <%= link_to animals_path do %>
-    <button class="search-btn"> Search </button>
-    <%end %>
+    <%= form_tag animals_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control form-search",
 
-  </section>
+    placeholder: "Where at ? Which specie ?"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+<%end%>
+
+
+
 
 
 <section class="gallery">
 
+<<<<<<< HEAD
+
+<section class="gallery">
+
+=======
+>>>>>>> master
     <div class="prices">
 
       <h3>Explore Mow picks</h3>
@@ -24,6 +37,7 @@
         <div class="description">
           <h4>Mariane</h4>
         </div>
+<<<<<<< HEAD
       </div>
 
       <div class="img"><img src="https://images7.alphacoders.com/405/405322.jpg">
@@ -33,6 +47,17 @@
         </div>
       </div>
 
+=======
+      </div>
+
+      <div class="img"><img src="https://images7.alphacoders.com/405/405322.jpg">
+        <div class="price-stamp">32 €</div>
+        <div class="description">
+          <h4>Nathalie</h4>
+        </div>
+      </div>
+
+>>>>>>> master
       <div class="img"><img src="https://cdn1-www.cattime.com/assets/uploads/2015/05/cat-obesity-1.jpg">
         <div class="price-stamp">9 €</div>
         <div class="description">
