@@ -2,21 +2,19 @@
 
   <h2 class="title"><span>Go green.</span> Book unique animals <br>and experience it like a farmer.</h2>
 
-  <section class="search-row">
-
-    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-
-    <%= form_tag animals_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control form-search",
-
-    placeholder: "Where at ? Which specie ?"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <div class = "search-all">
+    <div class = "search-input">
+      <%= form_tag animals_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control form-search",
+      placeholder: "Where at ? Which specie ?"%>
+    </div>
+      <div class="search-button">
+      <%= submit_tag "Search", class: "btn btn-primary homebtn" %>
+    </div>
+  </div>
 <%end%>
-
-
 
 
 
