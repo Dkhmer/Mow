@@ -10,8 +10,8 @@ class AnimalsController < ApplicationController
       @animals = policy_scope(Animal).order(created_at: :desc).geocoded
 
     end
-      @markers = @animals.map do |animal|
-      {lng: animal.longitude, lat:animal.latitude}
+    @markers = @animals.map do |animal|
+      { lng: animal.longitude, lat: animal.latitude }
     end
   end
 
@@ -50,7 +50,6 @@ class AnimalsController < ApplicationController
     end
   end
 
-
   def destroy
     @animal.destroy
     respond_to do |format|
@@ -66,6 +65,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :specie, :description, :address, photos:[] )
+    params.require(:animal).permit(:name, :specie, :description, :address, :photos)
   end
 end
