@@ -2,8 +2,10 @@
   <div class="row">
     <div class="col-sm-6 ">
       <h1><%= "#{@animal.name}"%></h1> <br>
-      <% if @animal.photo.attached? %>
-        <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if @animal.photos.attached? %>
+        <% @animal.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
       <% end %>
       <h2>Some informations:</h2>
       <p><%= "Specie : #{@animal.specie}"%></p>
