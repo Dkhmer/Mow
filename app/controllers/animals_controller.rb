@@ -2,9 +2,16 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @animals = policy_scope(Animal).order(created_at: :desc).geocoded
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR specie ILIKE :query OR city ILIKE :query"
+      @animals = policy_scope(Animal).where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc).geocoded
+
+    else
+      @animals = policy_scope(Animal).order(created_at: :desc).geocoded
+
+    end
     @markers = @animals.map do |animal|
-      {lng: animal.longitude, lat:animal.latitude}
+      { lng: animal.longitude, lat: animal.latitude }
     end
   end
 
@@ -43,7 +50,6 @@ class AnimalsController < ApplicationController
     end
   end
 
-
   def destroy
     @animal.destroy
     respond_to do |format|
@@ -59,6 +65,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :specie, :description, :address, photos:[] )
+    params.require(:animal).permit(:name, :specie, :description, :address, :photos)
   end
 end

@@ -2,53 +2,46 @@
 
   <h2 class="title"><span>Go green.</span> Book unique animals <br>and experience it like a farmer.</h2>
 
-  <section class="search-row">
-
-    <input class="search-input" type="text" placeholder="Where to?"></input>
-
-    <%= link_to animals_path do %>
-    <button class="search-btn"> Search </button>
-    <%end %>
-
-  </section>
-
+    <div class = "search-all">
+      <div class = "search-input">
+        <%= form_tag animals_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control form-search",
+        placeholder: "Where at ? Which specie ?"%>
+        <%end%>
+      </div>
+        <div class="search-button">
+        <%= submit_tag "Search", class: "btn btn-primary homebtn" %>
+        </div>
+    </div>
 
 <section class="gallery">
 
     <div class="prices">
-
       <h3>Explore Mow picks</h3>
-
       <div class="img"><img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80">
         <div class="price-stamp">20 €</div>
-        <div class="description">
-          <h4>Mariane</h4>
-        </div>
+        <div class="description"><h4>Mariane</h4></div>
       </div>
 
       <div class="img"><img src="https://images7.alphacoders.com/405/405322.jpg">
         <div class="price-stamp">32 €</div>
-        <div class="description">
-          <h4>Nathalie</h4>
-        </div>
-      </div>
-
-      <div class="img"><img src="https://cdn1-www.cattime.com/assets/uploads/2015/05/cat-obesity-1.jpg">
-        <div class="price-stamp">9 €</div>
-        <div class="description">
-          <h4>Edouard</h4>
-        </div>
+        <div class="description"><h4>Nathalie</h4></div>
       </div>
     </div>
+
+      <div class="img"><img src="https://images7.alphacoders.com/405/405322.jpg">
+        <div class="price-stamp">32 €</div>
+        <div class="description"><h4>Nathalie</h4></div>
+      </div>
     <hr>
+
   </section>
 
 </main>
 
 <footer>
-
-
-
   <div class="footer-content">
     <div class="footer-row">
       <section class="selectors">
