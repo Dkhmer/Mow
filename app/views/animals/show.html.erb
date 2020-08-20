@@ -49,6 +49,22 @@
                   <%= f.input :start_date, input_html: {class: "datepicker"}%>
                   <%= f.input :end_date , input_html: {class: "datepicker"}%>
                   <br>
+                  <script type="text/javascript">
+                    function total()
+                    {
+                      let start = Date.parse(document.getElementById("booking_start_date").value)
+                      console.log(start)
+                      let end = Date.parse(document.getElementById("booking_end_date").value)
+                      console.log(end)
+                      let duree = end - start
+                      console.log(durée)
+                      let total = durée * @animal.price
+                      console.log(total)
+                    }
+
+                  </script>>
+
+
                   <h3><%= "Total: #{@booking.total_price} €" %></h3>
                   <br>
                   <%= f.submit %>
