@@ -4,13 +4,20 @@
 
   <section class="search-row">
 
-    <input class="search-input" type="text" placeholder="Where to?"></input>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 
-    <%= link_to animals_path do %>
-    <button class="search-btn"> Search </button>
-    <%end %>
+    <%= form_tag animals_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control form-search",
 
-  </section>
+    placeholder: "Where at ? Which specie ?"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+<%end%>
+
+
+
 
 
 <section class="gallery">
