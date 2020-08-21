@@ -25,7 +25,7 @@
   <div class="cards-container">
     <% @animals.each do |animal| %>
       <div class="card-product">
-        <div id="carousel<%= animal.id %>" class="carousel slide" data-ride="carousel">
+        <div id="carousel<%= animal.id %>" class="carousel slide" data-intervel="true">
           <div class="carousel-inner">
               <% if animal.photos.attached? %>
                 <%  animal.photos.each_with_index do |photo, i|%>
