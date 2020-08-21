@@ -2,20 +2,30 @@ const calculate_price = () => {
 
 
   const start = document.getElementById("booking_start_date");
-  start.addEventListener("input",(event) => {
-    const dateStart = Date.parse(start.value);
-    console.log(dateStart);
-  });
-
   const end = document.getElementById("booking_end_date");
-  end.addEventListener("input", (event) => {
-    const endStart = Date.parse(end.value);
-    console.log(endStart);
-  });
+  const totalprice = document.getElementById("totalprice");
+  const price = document.getElementById("price").innerText;
 
-  const total = endStart - dateStart
+  if (end) {
+    start.addEventListener("input",(event) => {
+    });
 
-  console.log(total);
+    end.addEventListener("input", (event) => {
+      const dateStart = (Date.parse(start.value))/86400000;
+      console.log(dateStart);
+      const endStart = (Date.parse(end.value))/86400000;
+      console.log(endStart);
+      const total = (endStart - dateStart) * parseInt(price, 10);
+      console.log(price)
+
+      console.log(total);
+
+      console.log(totalprice)
+      totalprice.innerText = total
+    });
+
+  };
+
 
   // let duree = end - start
   // console.log(durée)
