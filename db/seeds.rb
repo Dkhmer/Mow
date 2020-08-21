@@ -51,7 +51,7 @@ puts "#{animal4.name}created"
 
 file5 = URI.open("https://images.unsplash.com/photo-1536146021566-627ce3c4d813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
 file55 = URI.open("https://images.unsplash.com/photo-1531989417401-0f85f7e673f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
-animal5 = Animal.create!(city: "Paris", specie: "Monkey", user: narcisse, price: 13, age: 10, name: "Bongo", address: "World Trade Center, New York",description:"Multifunction monkey, can be rent for laboratories tests or impress your friends !")
+animal5 = Animal.create!(city: "Paris", specie: "Monkey", user: narcisse, price: 13, age: 10, name: "Bongo", address: "Tour Eiffel, Paris",description:"Multifunction monkey, can be rent for laboratories tests or impress your friends !")
 animal5.photos.attach(io: file5, filename: 'mouti.jpg', content_type: 'image/png')
 animal5.photos.attach(io: file55, filename: 'mouti.jpg', content_type: 'image/png')
 puts "#{animal5.name}created"
