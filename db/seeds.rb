@@ -18,6 +18,9 @@ narcisse = User.create!(email: "narcisse@gmail.com", password:"123456")
 leo = User.create!(email: "leo@gmail.com", password:"123456")
 eric = User.create!(email: "eric@gmail.com", password:"123456")
 
+benjamin = User.create!(email: "benjamim@gmail.com", password:"123456")
+jean = User.create!(email: "jean@gmail.com", password:"123456")
+
 # ANIMALS
 file1 = URI.open("https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80")
 file11 = URI.open("https://images.unsplash.com/photo-1570288685369-f7305163d0e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80")
@@ -107,9 +110,9 @@ booking222 = Booking.create(start_date:"01/09/20", end_date:"07/09/20" ,animal:a
 
 
 # BOOKING DU SINGE
-booking3 = Booking.create(start_date:"01/09/20", end_date:"07/09/20" ,animal:animal5, user: narcisse, review:"Horrible ! I rent him to impress a girl for my first date, he left with her !", rating:2)
-booking33 = Booking.create(start_date:"01/09/20", end_date:"07/09/20" ,animal:animal5, user: narcisse, review:"He slapped my little brother...", rating:2)
-booking333 = Booking.create(start_date:"01/09/20", end_date:"07/09/20" ,animal:animal5, user: narcisse, review:"Love him.. and guess what? he tried to smoke with me..", rating:5)
+booking3 = Booking.create(start_date:"01/09/20", end_date:"07/09/20" ,animal:animal5, user: benjamin, review:"Horrible ! I rent him to impress a girl for my first date, he left with her !", rating:2)
+booking33 = Booking.create(start_date:"01/09/20", end_date:"07/09/20" ,animal:animal5, user: jean, review:"He slapped my little brother...", rating:1)
+booking333 = Booking.create(start_date:"01/09/20", end_date:"07/09/20" ,animal:animal5, user: leo, review:"Love him.. and guess what? he tried to smoke with me..", rating:5)
 
 
 

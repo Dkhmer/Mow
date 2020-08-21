@@ -1,64 +1,55 @@
-<div class="container" style="padding: 40px">
-  <div class="row">
-    <div class="col-sm-6 ">
-      <h1><%= "#{@animal.name}"%></h1> <br>
-      <% if @animal.photos.attached? %>
-        <% @animal.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
+<div class="container">
+  <!-- IMAGES -->
+  <div class="title-results">
+    <h1>"<%= "#{@animal.name.upcase}"%>"</h1> <br>
+  </div>
+  <% if @animal.photos.attached? %>
+    <div class="pictures-container">
+      <% @animal.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
-      <h2>Some informations:</h2>
-      <p><%= "Specie : #{@animal.specie}"%></p>
-      <p><%= "Age : #{@animal.age}"%></p>
-      <p><%= "Description : #{@animal.description}"%></p>
-      <p>Price: <span id="price"> <%= @animal.price %></span> €/day</p>
-      <h2>Reception conditions:</h2>
-      <p>Our pets don't ask for much, a little ground will suit them perfectly.<br>
-      <p>Please no apartment !!! </p>
-              <h2>Daily needs:</h2>
-              <p>Just a little love and a lot of fresh water</p>
-              <br>
-              <h2>Terms of cancelation:</h2>
-              <p>You can cancel up to 1:00 PM the day before</p>
-            </div>
-            <div class="col-sm-6" style="padding: 115px">
-              <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
-                <h1> BOOK ME !</h1>
-
-                <%= simple_form_for [@animal, @booking ] do |f| %>
-                  <%= f.input :start_date, input_html: {class: "datepicker"}%>
-                  <%= f.input :end_date , input_html: {class: "datepicker"}%>
-                  <br>
-                  <h2>TOTAL :
-                    <span id='totalprice'></span>€
-                  </h2>
-                  <br>
-                  <%= f.submit %>
-                <% end %>
-              </div>
-
-            </div>
-            <div class="col-sm-6" style="padding: 115px">
-            <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
-                <% if @current_booking != nil %>
-                  <%= simple_form_for @current_booking do |f| %>
-                    <%= f.input :review %>
-                    <%= f.input :rating, collection: 1..5 %>
-                    <%= hidden_field_tag 'animal', @animal.id %>
-                    <%= f.submit %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-          <div class="col-sm-6" style="padding: 115px">
-            <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
-              <% @animal.bookings.each do |booking| %>
-                <p><%= booking.review %> - <span><%= "⭐" * booking.rating.to_i + "☆"* (5-booking.rating.to_i)%></span></p>
-              <% end %>
-            </div>
-          </div>
-        </div>
+    </div>
+  <% end %>
+  <!-- DETAILS -->
+  <div class="info-form">
+    <div class="info-show">
+      <div class="details-show">
+        <ul style="list-style-type:none; ">
+          <li><i class="fas fa-paw"></i> Description: <%= @animal.description %></li> <br>
+          <li><i class="far fa-address-card"></i> Contact: <%= @animal.user.email %></li><br>
+          <li><i class="fas fa-globe-asia"></i> Location: <%= @animal.address %></li><br>
+        </ul>
       </div>
+      <div class="reviews">
+        <h3><strong>Reviews :</strong></h3>
+          <% @animal.bookings.each do |booking| %>
+            <p><strong><%= booking.user.email%></strong>: <%= booking.review %> - <br> <span><%= "⭐" * booking.rating.to_i + "☆"* (5-booking.rating.to_i)%></span></p>
+          <% end %>
+      </div>
+    </div>
+    <div class="form-show">
+      <h1> BOOK ME !</h1>
+      <%= simple_form_for [@animal, @booking ] do |f| %>
+        <%= f.input :start_date, input_html: {class: "datepicker"}%>
+        <%= f.input :end_date , input_html: {class: "datepicker"}%>
+        <br>
+        <h1><small>TOTAL:</small>
+        <span id='totalprice'></span>€
+        </h1>
+        <br>
+        <%= f.submit class: "btn btn-primary homebtn2" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-
-
+<div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+  <% if @current_booking != nil %>
+    <%= simple_form_for @current_booking do |f| %>
+      <%= f.input :review %>
+      <%= f.input :rating, collection: 1..5 %>
+      <%= hidden_field_tag 'animal', @animal.id %>
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+</div>
