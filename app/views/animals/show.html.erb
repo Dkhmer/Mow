@@ -37,10 +37,14 @@
                   <%= simple_form_for @current_booking do |f| %>
                     <%= f.input :review %>
                     <%= f.input :rating %>
+                    <%= hidden_field_tag 'animal', @animal.id %>
                     <%= f.submit %>
                 <% end %>
                 <% end %>
               </div>
+              <% @animal.bookings.each do |booking| %>
+                <p><%= booking.review %> - <span><%= booking.rating %></span></p>
+              <% end %>
             </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     authorize @booking
     @animal = Animal.find(params[:animal_id])
@@ -28,13 +27,20 @@ class BookingsController < ApplicationController
     end
   end
 
-def edit
-  @booking = Booking.find(current_user)
-end
+  def edit
+    @booking = Booking.find(current_user)
+  end
+
+  def update
+    animal = Animal.find(params[:animal])
+    @booking = Booking.find_by(user: current_user, animal: animal)
+    authorize @booking
+    @booking.update(booking_params)
+  end
+
   private
 
   def booking_params
-     params.require(:booking).permit(:start_date, :end_date, :user_id, :animal_id, :review, :rating)
+    params.require(:booking).permit(:start_date, :end_date, :user_id, :animal_id, :review, :rating)
   end
-
 end
