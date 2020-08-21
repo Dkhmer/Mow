@@ -1,4 +1,12 @@
+#results-for {
+  margin:25px;
+  margin-bottom:-10px;
+}
 
+#number-of-note {
+  font-family : Circular,Helvetica,Arial,sans-serif;
+  font-weight:bolder;
+}
 .card-product {
   overflow: hidden;
   height: 225px;
@@ -48,7 +56,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 95%;
+  height: 100%;
   flex-grow:1;
 }
 
