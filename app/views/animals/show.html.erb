@@ -18,6 +18,7 @@
           <li><i class="fas fa-paw"></i> Description: <%= @animal.description %></li> <br>
           <li><i class="far fa-address-card"></i> Contact: <%= @animal.user.email %></li><br>
           <li><i class="fas fa-globe-asia"></i> Location: <%= @animal.address %></li><br>
+          <li><p>Price : <span id="price"> <%= @animal.price %> </span> €/day</p></li>
         </ul>
       </div>
       <div class="reviews">
@@ -34,7 +35,7 @@
         <%= f.input :end_date , input_html: {class: "datepicker"}%>
         <br>
         <h1><small>TOTAL:</small>
-        <span id='totalprice'></span>€
+        <span id='totalprice'>0</span>€
         </h1>
         <br>
         <%= f.submit class: "btn btn-primary homebtn2" %>
