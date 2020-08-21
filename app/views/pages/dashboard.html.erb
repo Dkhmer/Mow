@@ -3,7 +3,7 @@
 <% @bookings.each do |booking|%>
   <% if booking.animal.photos.attached? %>
     <% booking.animal.photos.each do |photo| %>
-      <li> <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></li>
+      <li> <%= cl_image_tag photo.key, height: 200, width: 280, crop: :fill %></li>
     <% end %>
   <% end %>
   <li> <%= booking.animal.name %> </li>
