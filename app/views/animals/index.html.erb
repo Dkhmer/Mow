@@ -1,6 +1,6 @@
 <% if (@animals.empty?) %>
   <div class ="empty">
-  <h2>No animal found for "<%= params[:query] %>".</h2>
+  <h2>No animal found for "<%= params[:query].titleize %>".</h2>
   <h3>Please try again</h3>
   <div class = "search-all-fail">
       <div class = "search-input-fail">
@@ -16,13 +16,10 @@
         </div>
     </div>
   </div>
-
 <% else %>
-
 <div id="results-for">
-  <h4>Results for <strong><%= params[:query] %></strong>:</h4>
+  <h4>Results for <strong><%= params[:query].titleize %></strong>:</h4>
 </div>
-
 <!-- CAROUSEL -->
 <div class="main-container">
   <div class="cards-container">
@@ -60,7 +57,6 @@
         </div>
       </div>
     <% end %>
-
   </div>
 
   <!-- MAP -->
