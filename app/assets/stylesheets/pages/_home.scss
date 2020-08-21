@@ -43,7 +43,16 @@
     height:50px;
   }
 
+  .homebtn2 {
+    height:50px;
+    width:150px;
+    background-color: rgb(0, 150, 107)!important;
+    border-color:rgb(0, 150, 107) !important;
+  }
+
   .homebtn {
+    position: relative;
+    left:-24px;
     height:50px;
     width:150px;
     background-color: rgb(0, 150, 107)!important;
@@ -60,30 +69,14 @@
     flex-grow: 1;
   }
 
-
   .search-all{
     display: flex;
     justify-content: space-between;
   }
 
 
-  .search-btn{
-    float: left;
-    width: 150px;
-    height: 52px;
-    border: 1px solid rgb(0, 170, 107);
-    margin: 0px 0 0px 0;
-    background-color: rgb(0, 170, 107);
-;
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
   .search-btn:hover{
     background-color: rgb(0, 150, 107);
-;
     cursor: pointer;
   }
 
