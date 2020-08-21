@@ -36,6 +36,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by(user: current_user, animal: animal)
     authorize @booking
     @booking.update(booking_params)
+    redirect_to animal_path(@booking.animal)
   end
 
   private

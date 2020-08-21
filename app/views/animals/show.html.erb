@@ -33,18 +33,30 @@
                   <br>
                   <%= f.submit %>
                 <% end %>
+              </div>
+
+            </div>
+            <div class="col-sm-6" style="padding: 115px">
+            <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
                 <% if @current_booking != nil %>
                   <%= simple_form_for @current_booking do |f| %>
                     <%= f.input :review %>
-                    <%= f.input :rating %>
+                    <%= f.input :rating, collection: 1..5 %>
                     <%= hidden_field_tag 'animal', @animal.id %>
                     <%= f.submit %>
                 <% end %>
-                <% end %>
-              </div>
-              <% @animal.bookings.each do |booking| %>
-                <p><%= booking.review %> - <span><%= booking.rating %></span></p>
               <% end %>
             </div>
+          </div>
+          <div class="col-sm-6" style="padding: 115px">
+            <div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+              <% @animal.bookings.each do |booking| %>
+                <p><%= booking.review %> - <span><%= "⭐" * booking.rating.to_i + "☆"* (5-booking.rating.to_i)%></span></p>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
+
+
+
