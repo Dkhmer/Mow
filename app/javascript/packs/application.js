@@ -33,10 +33,10 @@ import { initMapBox } from '../plugins/init_mapbox';
 import {calculate_price } from'../components/calculate_price';
 
 document.addEventListener('turbolinks:load', () => {
-if (document.querySelector("#map")) {
-  initMapBox ();
-}
+  if (document.querySelector("#map")) {
+    initMapBox ();
+  }
   // Call your functions here, e.g:
   // initSelect2();
-calculate_price();
-});
+  calculate_price();
+  });
