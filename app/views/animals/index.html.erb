@@ -12,20 +12,23 @@
         <%end%>
       </div>
         <div class="search-button-fail">
-        <%= submit_tag "Search", class: "btn btn-primary homebtn" %>
+        <%= submit_tag "Search", class: "btn btn-primary homebtn2" %>
         </div>
     </div>
   </div>
+
 <% else %>
 
-<h4>Results for <strong><%= params[:query] %></strong>:</h4>
+<div id="results-for">
+  <h4>Results for <strong><%= params[:query] %></strong>:</h4>
+</div>
 
 <!-- CAROUSEL -->
 <div class="main-container">
   <div class="cards-container">
     <% @animals.each do |animal| %>
       <div class="card-product">
-        <div id="carousel<%= animal.id %>" class="carousel slide" data-ride="carousel">
+        <div id="carousel<%= animal.id %>" class="carousel slide" data-intervel="true">
           <div class="carousel-inner">
               <% if animal.photos.attached? %>
                 <%  animal.photos.each_with_index do |photo, i|%>
@@ -50,7 +53,8 @@
           <h2> <%= link_to animal.name, animal_path(animal) %> <p><%= animal.specie.capitalize %></p> </h2>
           <p> <%= animal.description %></p>
           <div class=footer-cards>
-            <i class="fas fa-star" style="color: rgb(255,0,78);"> 4,43 <span id="number-of-note" >(19)</span></i>
+            <i class="fas fa-star" style="color: rgb(255,0,78);">
+            <span id="number-of-note" >4,43 (19)</span></i>
             <span><%= animal.price %>€</span>
           </div>
         </div>
