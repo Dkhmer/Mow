@@ -1,21 +1,27 @@
 
 <div class="container">
+  <h1>My bookings</h1>
   <div class="row">
 
-
+<% @bookings.each do |booking|%>
     <div class="card text-white bg-success mb-3 mr-5" style="max-width: 18rem;">
-      <div class="card-header">Header</div>
+      <div class="card-header">
+        <%= booking.animal.name %> | <%= booking.animal.specie %>
+      </div>
       <div class="card-body">
         <h5 class="card-title">Success card title</h5>
-<!--         <%# if booking.animal.photos.attached? %>
-          <%# booking.animal.photos.each do |photo| %>
-            <li> <%#= cl_image_tag photo.key, height: 200, width: 280, crop: :fill %></li>
-          <%# end %>
-        <%# end %> -->
-
+        <div class="card-product">
+          <% if booking.animal.photos.attached? %>
+            <% booking.animal.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 200, width: 280, crop: :fill %>
+            <% end %>
+          <% end %>
+        </div>
+        <p><%= booking.start_date %> | <%= booking.end_date %></p>
       </div>
+      <%= link_to "Leave review", animal_path(booking.animal) %>
     </div>
-
+      <% end %>
 
     <div class="card text-white bg-danger mb-3 mr-5" style="max-width: 18rem;">
       <div class="card-header">Header</div>
@@ -33,9 +39,3 @@
     </div>
   </div>
 </div>
-       <% @bookings.each do |booking|%>
-          <%= booking.animal.name %>
-          <%= booking.animal.specie %>
-          <%= booking.start_date %>
-          <%= booking.end_date %>
-          <% end %>

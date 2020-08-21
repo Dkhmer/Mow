@@ -22,16 +22,19 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-          redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
   end
 
+def edit
+  @booking = Booking.find(current_user)
+end
   private
 
   def booking_params
-     params.require(:booking).permit(:start_date, :end_date, :user_id, :animal_id)
+     params.require(:booking).permit(:start_date, :end_date, :user_id, :animal_id, :review, :rating)
   end
 
 end

@@ -17,6 +17,7 @@ class AnimalsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @current_booking = Booking.find_by(user: current_user, animal: @animal)
   end
 
   def new
