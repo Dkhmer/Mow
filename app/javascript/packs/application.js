@@ -30,8 +30,11 @@ import "../plugins/flatpickr"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapBox } from '../plugins/init_mapbox';
+import {calculate_price } from'../components/calculate_price';
+
 document.addEventListener('turbolinks:load', () => {
-  initMapBox ();
+  // initMapBox ();
   // Call your functions here, e.g:
   // initSelect2();
+calculate_price();
 });

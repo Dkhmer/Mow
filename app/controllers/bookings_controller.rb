@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     @booking.animal_id = @animal.id
     @booking.user = current_user
     authorize @booking
+    raise
     if @booking.save
           redirect_to booking_path(@booking)
     else

@@ -11,7 +11,7 @@
       <p><%= "Specie : #{@animal.specie}"%></p>
       <p><%= "Age : #{@animal.age}"%></p>
       <p><%= "Description : #{@animal.description}"%></p>
-      <p><%= "Price : #{@animal.price} €"%></p>
+      <p><%= "Price : <span id='price'>#{@animal.price}</span> €"%></p>
       <h2>Reception conditions:</h2>
       <p>Our pets don't ask for much, a little ground will suit them perfectly.<br>
       <p>Please no apartment !!! </p>
@@ -51,7 +51,7 @@
                   <%= f.input :start_date, input_html: {class: "datepicker"}%>
                   <%= f.input :end_date , input_html: {class: "datepicker"}%>
                   <br>
-                  <h3><%= "Total: #{@booking.total_price} €" %></h3>
+                  <h3><%= "Total: €" %></h3>
                   <br>
                   <%= f.submit %>
                  <% end %>
