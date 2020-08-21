@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 const calculate_price = () => {
 
 
@@ -22,6 +24,21 @@ const calculate_price = () => {
 
       console.log(totalprice)
       totalprice.innerText = total
+
+    });
+    end.addEventListener("change", (event) => {
+      const alert = () => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'How lucky you are, your animal is available for this period !',
+          showConfirmButton: true,
+          timer: 60000
+        })
+      };
+
+
+      setTimeout(alert(), 6000);
     });
 
   };
