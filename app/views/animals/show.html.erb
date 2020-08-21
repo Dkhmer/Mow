@@ -43,3 +43,13 @@
   </div>
 </div>
 
+<div style="border: 1px solid rgb(221, 221, 221); border-radius: 12px; padding: 24px; box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;">
+  <% if @current_booking != nil %>
+    <%= simple_form_for @current_booking do |f| %>
+      <%= f.input :review %>
+      <%= f.input :rating, collection: 1..5 %>
+      <%= hidden_field_tag 'animal', @animal.id %>
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+</div>

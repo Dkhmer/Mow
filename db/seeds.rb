@@ -17,8 +17,10 @@ puts "Creating animal........"
 narcisse = User.create!(email: "narcisse@gmail.com", password:"123456")
 leo = User.create!(email: "leo@gmail.com", password:"123456")
 eric = User.create!(email: "eric@gmail.com", password:"123456")
+
 benjamin = User.create!(email: "benjamim@gmail.com", password:"123456")
 jean = User.create!(email: "jean@gmail.com", password:"123456")
+
 # ANIMALS
 file1 = URI.open("https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80")
 file11 = URI.open("https://images.unsplash.com/photo-1570288685369-f7305163d0e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80")
@@ -52,7 +54,7 @@ puts "#{animal4.name}created"
 
 file5 = URI.open("https://images.unsplash.com/photo-1536146021566-627ce3c4d813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
 file55 = URI.open("https://images.unsplash.com/photo-1531989417401-0f85f7e673f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
-animal5 = Animal.create!(city: "Paris", specie: "Monkey", user: narcisse, price: 13, age: 10, name: "Bongo", address: "World Trade Center, New York",description:"Multifunction monkey, can be rent for laboratories tests or impress your friends !")
+animal5 = Animal.create!(city: "Paris", specie: "Monkey", user: narcisse, price: 13, age: 10, name: "Bongo", address: "Tour Eiffel, Paris",description:"Multifunction monkey, can be rent for laboratories tests or impress your friends !")
 animal5.photos.attach(io: file5, filename: 'mouti.jpg', content_type: 'image/png')
 animal5.photos.attach(io: file55, filename: 'mouti.jpg', content_type: 'image/png')
 puts "#{animal5.name}created"
@@ -61,6 +63,7 @@ file6 = URI.open("https://cdn1-www.cattime.com/assets/uploads/2015/05/cat-obesit
 animal6 = Animal.create!(city: "New York", specie: "Cat", user: narcisse, price: 79, age: 11, name: "Chausette", address: "Lexington Avenue, New York",description:"Stressfull day ? Rent Chaussette to decompress")
 animal6.photos.attach(io: file6, filename: 'bibi.jpg', content_type: 'image/png')
 puts "#{animal6.name}created"
+
 
 file7 = URI.open("https://wallpapercrafter.com/desktop/271302-cow-highland-cattle-calf-and-highland-calf-hd.jpg")
 file77 =URI.open("https://images.unsplash.com/photo-1551606712-ce1d9e8fbee4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
@@ -72,24 +75,26 @@ puts "#{animal7.name}created"
 
 file8 = URI.open("https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80")
 file88 =URI.open("https://images.unsplash.com/photo-1496196614460-48988a57fccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
-animal8 = Animal.create!(city: "London", specie: "Turtle", user: leo, price: 20, age: 12, name: "Donatello", address: "Picadilly",description:"Best ninja turtle ever")
+animal8 = Animal.create!(city: "London", specie: "Turtle", user: leo, price: 20, age: 12, name: "Donatello", address: "Picadilly Circus, London",description:"Best ninja turtle ever")
 animal8.photos.attach(io: file8, filename: 'donatello.jpg', content_type: 'image/png')
 animal8.photos.attach(io: file88, filename: 'donatello.jpg', content_type: 'image/png')
 puts "#{animal8.name}created"
 
 file9 = URI.open("https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80")
 file99 =URI.open("https://images.unsplash.com/photo-1551356277-dbb545a2d493?ixlib=rb-1.2.1&auto=format&fit=crop&w=1047&q=80")
-animal9 = Animal.create!(city: "London", specie: "Elephant", user: leo, price: 80, age: 12, name: "Dumbo", address: "Oxford Street.",description:"He can fly, I Swear !")
+animal9 = Animal.create!(city: "London", specie: "Elephant", user: leo, price: 80, age: 12, name: "Dumbo", address: "Oxford Street, London",description:"He can fly, I Swear !")
 animal9.photos.attach(io: file9, filename: 'dumbo.jpg', content_type: 'image/png')
 animal9.photos.attach(io: file99, filename: 'dumbo.jpg', content_type: 'image/png')
 
 file10 = URI.open("https://images.unsplash.com/photo-1526034332220-067b0f400e06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80")
 file100 =URI.open("https://images.unsplash.com/photo-1567601858514-da7c3584ff04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
-animal10 = Animal.create!(city: "London", specie: "Tiger", user: leo, price: 67, age: 12, name: "Tigrou", address: "Abbey Road",description:"He can keep your home safe")
+animal10 = Animal.create!(city: "London", specie: "Tiger", user: leo, price: 67, age: 12, name: "Tigrou", address: "Abbey Road, London",description:"He can keep your home safe")
 animal10.photos.attach(io: file10, filename: 'tigrou.jpg', content_type: 'image/png')
 animal10.photos.attach(io: file100, filename: 'tigrou.jpg', content_type: 'image/png')
 
-  # BOOKINGS
+
+
+# BOOKINGS
 
 # BOOKING DU PANDA
 
