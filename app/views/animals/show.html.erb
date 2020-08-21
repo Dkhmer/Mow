@@ -18,7 +18,7 @@
           <li><i class="fas fa-paw"></i> Description: <%= @animal.description %></li> <br>
           <li><i class="far fa-address-card"></i> Contact: <%= @animal.user.email %></li><br>
           <li><i class="fas fa-globe-asia"></i> Location: <%= @animal.address %></li><br>
-          <li><p>Price : <span id="price"> <%= @animal.price %> </span> €/day</p></li>
+          <li></li>
         </ul>
       </div>
       <div class="reviews">
@@ -26,6 +26,7 @@
           <% @animal.bookings.each do |booking| %>
             <p><strong><%= booking.user.email%></strong>: <%= booking.review %> - <br> <span><%= "⭐" * booking.rating.to_i + "☆"* (5-booking.rating.to_i)%></span></p>
           <% end %>
+          <p>Price : <span id="price"> <%= @animal.price %> </span> €/day</p>
       </div>
     </div>
     <div class="form-show">
