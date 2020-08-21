@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :animals do
     resources :bookings, only: [:create,:delete]
   end
-  resources :dashboard
+  get "/dashboard", to: "pages#dashboard"
   resources :bookings, only: :show
 end
